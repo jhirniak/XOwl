@@ -25,6 +25,11 @@ The Wikipedia is the best source for analysing the knowledge network as it is av
 
 # Related work
 
+* [Wikispeedia](http://cs.mcgill.ca/~rwest/wikispeedia/) project at Stanford.
+* [Wikipedia: Book creator tool.](https://en.wikipedia.org/w/index.php?title=Special:Book&bookcmd=book_creator&referer=Main+Page)
+* How people find and search for information [[1](http://infolab.stanford.edu/~west1/pubs/West-Leskovec_WWW-12.pdf), [2](http://haystack.csail.mit.edu/papers/chi2004-perfectse.pdf), [3](http://infolab.stanford.edu/~west1/pubs/West-Pineau-Precup_IJCAI-09.pdf)]
+* Research on graph partitioning at Microsoft [[6]](http://research.microsoft.com/pubs/166151/kdd325-stanton.pdf).
+
 # How to address the problem
 
 We will perform Milgram experiment on the knowledge base and measure mean/average/max distance between articles in terms of hops between them. Any such experiment could not be performed on the whole set, so sampling subnets from it to get significant results, finding the extreme cases, and mapping the structure of it, is going to pose interesting challenges in itself.
@@ -58,6 +63,7 @@ After obtaining the measures and understanding how articles on the Wikipedia are
 3. [(2009) Wikispeedia: An Online Game for Inferring Semantic Distances between Concepts. Robert West, Joelle Pineau, and Doina Precup. Proceedings of the Twenty-First International Joint Conference on Artificial Intelligence (IJCAI-09).](http://infolab.stanford.edu/~west1/pubs/West-Pineau-Precup_IJCAI-09.pdf)
 4. [Wikispeedia - game based on finding the shortest path thorugh Wikipedia articles from article A to article B.](http://cs.mcgill.ca/~rwest/wikispeedia/)
 5. [Wikipedia: Book creator tool.](https://en.wikipedia.org/w/index.php?title=Special:Book&bookcmd=book_creator&referer=Main+Page)
+6. [Streaming Graph Partitioning for Large Distributed Graphs](http://research.microsoft.com/pubs/166151/kdd325-stanton.pdf)
 
 # Data sets list
 
