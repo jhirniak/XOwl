@@ -57,3 +57,12 @@ After obtaining the measures and understanding how articles on the Wikipedia are
 3. [(2009) Wikispeedia: An Online Game for Inferring Semantic Distances between Concepts. Robert West, Joelle Pineau, and Doina Precup. Proceedings of the Twenty-First International Joint Conference on Artificial Intelligence (IJCAI-09).](http://infolab.stanford.edu/~west1/pubs/West-Pineau-Precup_IJCAI-09.pdf)
 4. [Wikispeedia - game based on finding the shortest path thorugh Wikipedia articles from article A to article B.](http://cs.mcgill.ca/~rwest/wikispeedia/)
 5. [Wikipedia: Book creator tool.](https://en.wikipedia.org/w/index.php?title=Special:Book&bookcmd=book_creator&referer=Main+Page)
+
+# Data sets list
+
+1. Wikiseedia with shortest distances: 
+  1. [Paths and graph](https://snap.stanford.edu/data/wikispeedia/wikispeedia_paths-and-graph.tar.gz)
+  2. [Articls in plaintext](https://snap.stanford.edu/data/wikispeedia/wikispeedia_articles_plaintext.tar.gz)
+  3. [Articles in HTML](https://snap.stanford.edu/data/wikispeedia/wikispeedia_articles_html.tar.gz)
+2. [XML dump of all articles on Wikipedia in English (14GB)](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2)
+
