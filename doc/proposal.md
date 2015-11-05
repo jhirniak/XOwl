@@ -1,6 +1,7 @@
 # Team
 
 Jaroslaw Hirniak, s1143166
+
 Michael Lotkowski, s1207068
 
 # Problem statement
@@ -9,7 +10,7 @@ WWW organised knowledge sematnics around pages and how they relate via hyperlink
 
 However, this approach have drawbacks, mainly that the richer get richer and the poorer get poorer or in our version the popular get more popular and unpopular become even less popular. It is a fact that few websites get most of the trafic on the Internet -- Facebook has more than 1 billion of visits a day, most blogs are hosted on wordpress.com, media.com, or similar blogging platform, people use to media hubs such for sharing and accessing information, we buy everything on eBay or Amazon, access all articles on the Wikipedia, and in the result the web keeps converging to a single dot, what is not a desired effect. The web was made to connect and not to mash everything together into a single web page.
 
-# Importance: why is the problem significant?
+# Importance
 
 It is important problem as it often leads to very good sources of informationsuch as homepages, startups, insitutions, and interesting knowledge to remain unexplored on the Internet. The problem with the search as it is, it looks for popularity, and not for the utility. Hence even though no information exists in isolation, it can go as unpopular kid through the high school -- unnoticed.
 
