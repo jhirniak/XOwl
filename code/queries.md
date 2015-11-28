@@ -16,7 +16,7 @@ lbzip2 -dc enwiki-latest-pages-articles.xml.bz2 | java -classpath $GRAPHP/graphi
 java -Xmx3G -classpath $GRAPHP/graphipedia-dataimport.jar org.graphipedia.dataimport.neo4j.ImportGraph enwiki-links.xml wiki-small.db
 ```
 
-5. Query for Bacon distance:
+5. Query for Bacon distance (Milgram experiment):
 
 ```cypher
 MATCH p=shortestPath(
