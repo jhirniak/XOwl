@@ -1,0 +1,84 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{hyperref}
+\usepackage{dirtytalk}
+\usepackage{url}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage{tipa}
+\usepackage{setspace}
+\usepackage[]{algorithm2e}
+
+
+
+\title{Wikipedia Link Analysis}
+\author{Michael Lotkowski \\ \href{mailto:s1207068@sms.ed.ac.uk}{s1207068@sms.ed.ac.uk}}
+
+
+\begin{document}
+\onehalfspacing
+\maketitle
+
+\begin{multicols}{2}
+
+\section{Introduction}
+Wikipedia is a free-access, free-content Internet encyclopedia, supported and hosted by the non-profit Wikimedia Foundation. Those who can access the site can edit most of its articles. Wikipedia is ranked among the ten most popular websites and constitutes the Internet's largest and most popular general reference work \cite{wikipedia}. Like most websites it's dominated by hyperlinks which link pages together. The large size of the English Wikipedia (~5,021,159 articles)\cite{wikipedia_stats} makes it impractical for analysis in the short time and with limited computational resources. The Scots language Wikipedia has ~35,300 articles\cite{wikipedia_stats}, which makes it a better choice. Using another Wikipedia is a better choice than sampling from the English Wikipedia as the entire structure of the graph is preserved and it is a sufficient size to allow us to believe that the larger Wikipedias behave in a similar manner. 
+
+\section{Missing Links}
+The Scots Wikipedia has many articles with very few links. This is mainly due to short article length. However this makes it difficult to navigate on the site. In many cases the article do exist for Scots Wikipedia, however they are just missing a link. The Strongly Connected Component has 25338 out of 44670 nodes, accounting for 56.72\% of all the nodes. This will also be true for other small Wikipedias. Wikipedia provides an option to view the same article in many languages. This is a useful option if you know more than one language, however most people would prefer to read an article in the same language. This report presents a method for automatic page linking using a larger Wikipedias. It also explores further improvements to this method.
+
+\section{Methodology}
+For the automatic page linking we require two datasets, a small Wikipedia and a large Wikipedia which we will use to supplement the links for the small Wikipedia.
+Wikimedia provides database dumps for every Wikipedia \cite{wikimedia_dumps}. First we need to extract all links from the dumps using Grpahpedia \cite{graphipedia}
+. This will generate a neo4j database, containing all pages as nodes and links as edges. I have also altered Graphpedia to output a json file to make it smaller and easier to manipulate in Python \cite{graphipedia-michael}. After the preprocessing is done then we will run analysis on the base graph of the small Wikipedia. Afterwards we will enrich the base graph of the small Wikipedia using the graph structure of the large Wikipedia, and run the same analysis. Lastly we will combine the two graphs together and run the same analysis. The enriched graph will have to be normalised as it's not possible to get new links for all pages.
+
+To evaluate this method I will compare the size of the Strongly Connected Component, average number of links and the number of pages which have no outgoing links. For this method to be successful it has to have a significant increase in interconnectivity and significantly decrease dead-end pages. The viability of the method will also depend on it's performance.
+
+
+\section{Solution}
+Wikimedia provides an SQL dump of interlanguage translations. Combined with the page titles dump we can join the two to create a mapping between Scots and English titles. For each Scots title we look up the equivalent English title and search the English Wikipedia for first degree neighbours. For each neighbour node look up the Scots equivalent, if it exists create an edge between the initial title and the neighbour node. Below is a pseudo code outlining this algorithm.
+\\
+
+\begin{algorithm}[H]
+ \KwData{SW: small Wikipedia Dump}
+ \KwData{LW: large Wikipedia Dump}
+ \KwData{Trans: Mapping between page titles}
+  \KwData{G: New graph}
+ \KwResult{A small Wikipedia graph with links mapped from the large Wikipedia}
+	
+ \For{page in SW}{
+ 	large\_page = Trans.sWToLW(page)
+  	links = LW.linksForPage(large\_page)
+  	\For{link in links}{
+  		\If{link in Trans}{
+  			G[page].addLink(Trans.lWToSW(link))
+  		}
+  	} 
+  }
+  
+  \Return G
+  \hfill \newline
+ \caption{Automatically generate new links}
+\end{algorithm}
+\hfill \newline
+This algorithm has worst case complexity of $O(nl)$ where $n$ is the number of pages in the small Wikipedia, and $l$ is the number of links in the large Wikipedia. However on average it performs in $\Omega(n)$, as the number of links per page is relatively small, on average about 25 per page in the English Wikipedia \cite{sixdegrees}.  
+
+\section{Evaluation}
+
+
+
+
+Enriched scc is 27366 out of 31516 86.83\%
+
+combined scc is 36309 out of 44670 81.28\% avg 34.84
+
+
+\section{Conclusion}
+
+\section{Further Improvements}
+
+\newpage
+\bibliography{bibliography}
+\bibliographystyle{unsrt}
+\end{multicols}
+\end{document}
